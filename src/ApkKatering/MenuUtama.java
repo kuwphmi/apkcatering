@@ -80,13 +80,13 @@ public class MenuUtama extends javax.swing.JFrame {
                 .addGap(226, 226, 226)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnPesanan)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 329, Short.MAX_VALUE)
-                        .addComponent(btnPendapatan))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(btnMenu)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 350, Short.MAX_VALUE)
+                        .addComponent(btnPelanggan))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnPesanan)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnPelanggan)))
+                        .addComponent(btnPendapatan)))
                 .addGap(242, 242, 242))
         );
         layout.setVerticalGroup(
@@ -98,11 +98,11 @@ public class MenuUtama extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnMenu)
                     .addComponent(btnPelanggan))
-                .addGap(152, 152, 152)
+                .addGap(101, 101, 101)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPendapatan)
-                    .addComponent(btnPesanan))
-                .addContainerGap(159, Short.MAX_VALUE))
+                    .addComponent(btnPesanan)
+                    .addComponent(btnPendapatan))
+                .addContainerGap(210, Short.MAX_VALUE))
         );
 
         pack();
