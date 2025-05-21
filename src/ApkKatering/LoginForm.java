@@ -4,6 +4,7 @@
  */
 package ApkKatering;
 
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -43,8 +44,7 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize([400, 300]);
-        setSize(new java.awt.Dimension(400, 300));
+        setSize(new java.awt.Dimension(400, 500));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 500));
@@ -100,7 +100,6 @@ public class LoginForm extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ApkKatering/NYF.png"))); // NOI18N
         jLabel3.setText("jLabel3");
-        jLabel3.setPreferredSize(new java.awt.Dimension(1066, 1024));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -192,8 +191,7 @@ public class LoginForm extends javax.swing.JFrame {
             rs.close();
             ps.close();
             conn.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (HeadlessException | SQLException e) {
             JOptionPane.showMessageDialog(this, "Terjadi kesalahan koneksi!");
         }
     }//GEN-LAST:event_btnLoginActionPerformed
@@ -234,10 +232,8 @@ public class LoginForm extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LoginForm().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new LoginForm().setVisible(true);
         });
     }
 
