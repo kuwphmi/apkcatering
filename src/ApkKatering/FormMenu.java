@@ -95,11 +95,13 @@ public class FormMenu extends javax.swing.JFrame {
 
         jLabel2.setText("Nama Menu");
 
-        txtNama.setText("jTextField1");
+        txtNama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNamaActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Harga");
-
-        txtHarga.setText("jTextField1");
 
         btnTambah.setText("Tambah");
         btnTambah.addActionListener(new java.awt.event.ActionListener() {
@@ -372,6 +374,10 @@ public class FormMenu extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Errpr:"+e.getMessage());
         }
     }//GEN-LAST:event_btnHapusActionPerformed
+
+    private void txtNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNamaActionPerformed
     
     /**
      * @param args the command line arguments
