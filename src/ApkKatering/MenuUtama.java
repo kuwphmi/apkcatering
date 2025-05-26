@@ -43,6 +43,7 @@ public class MenuUtama extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 165, 0));
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 400));
 
+        btnMenu.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         btnMenu.setForeground(new java.awt.Color(51, 51, 51));
         btnMenu.setText("Menu");
         btnMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -51,6 +52,7 @@ public class MenuUtama extends javax.swing.JFrame {
             }
         });
 
+        btnPesanan.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         btnPesanan.setForeground(new java.awt.Color(51, 51, 51));
         btnPesanan.setText("Pesanan");
         btnPesanan.addActionListener(new java.awt.event.ActionListener() {
@@ -59,6 +61,7 @@ public class MenuUtama extends javax.swing.JFrame {
             }
         });
 
+        btnPelanggan.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         btnPelanggan.setForeground(new java.awt.Color(51, 51, 51));
         btnPelanggan.setText("Pelanggan");
         btnPelanggan.addActionListener(new java.awt.event.ActionListener() {
@@ -67,6 +70,7 @@ public class MenuUtama extends javax.swing.JFrame {
             }
         });
 
+        btnPendapatan.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         btnPendapatan.setForeground(new java.awt.Color(51, 51, 51));
         btnPendapatan.setText("Pendapatan");
         btnPendapatan.addActionListener(new java.awt.event.ActionListener() {
