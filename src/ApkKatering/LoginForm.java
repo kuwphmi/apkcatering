@@ -163,36 +163,35 @@ public class LoginForm extends javax.swing.JFrame {
         String username = txtUsername.getText();
         String password = new String(txtPassword.getPassword());
 
-        try {
-            // Ambil koneksi dari class Koneksi
-            Connection conn = Koneksi.getConnection();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 
-            // Gunakan PreparedStatement agar lebih aman (hindari SQL injection)
+        try {
+            conn = Koneksi.getConnection();
             String sql = "SELECT * FROM akun WHERE username = ? AND password = ?";
-            PreparedStatement ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement(sql);
             ps.setString(1, username);
             ps.setString(2, password);
-
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
 
             if (rs.next()) {
-                // Jika user ditemukan
-                JOptionPane.showMessageDialog(this, "Login berhasil !");
-
-                // Buka menu utama
+                JOptionPane.showMessageDialog(this, "Login berhasil!");
+                this.dispose(); // tutup form login sebelum lanjut
                 MenuUtama menu = new MenuUtama();
                 menu.setVisible(true);
-                this.dispose(); // tutup form login
             } else {
                 JOptionPane.showMessageDialog(this, "Username atau password salah!");
             }
 
-            rs.close();
-            ps.close();
-            conn.close();
         } catch (HeadlessException | SQLException e) {
-            JOptionPane.showMessageDialog(this, "Terjadi kesalahan koneksi!");
+            JOptionPane.showMessageDialog(this, "Terjadi kesalahan koneksi: " + e.getMessage());
+        } finally {
+            try { if (rs != null) rs.close(); } catch (SQLException e) {}
+            try { if (ps != null) ps.close(); } catch (SQLException e) {}
+            try { if (conn != null) conn.close(); } catch (SQLException e) {}
         }
+
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed

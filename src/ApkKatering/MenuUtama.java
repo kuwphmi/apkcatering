@@ -5,7 +5,7 @@
 package ApkKatering;
 
 import ApkKatering.LabaRugi;
-import ApkKatering.FormMenu;
+import ApkKatering.DataMenu;
 import javax.swing.JOptionPane;
 
 /**
@@ -171,13 +171,13 @@ public class MenuUtama extends javax.swing.JFrame {
     private void btnPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPelangganActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(this, "Pelanggan akan dibuka ");
-
+        new DataPelanggan().setVisible(true);
     }//GEN-LAST:event_btnPelangganActionPerformed
 
     private void btnPesananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesananActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(this, "Pesanan akan dibuka ");
-
+        new DataPesanan().setVisible(true); 
     }//GEN-LAST:event_btnPesananActionPerformed
 
     private void btnPendapatanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPendapatanActionPerformed

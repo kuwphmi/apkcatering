@@ -13,22 +13,15 @@ import java.sql.SQLException;
  * @author Alwian
  */
 public class Koneksi {
-    private static Connection conn;
-    
-    public static Connection getConnection()throws SQLException{
-        if (conn == null){
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/db_katering", // Ganti nama_database
-                    "root", // username MySQL
-                    ""       // password MySQL
-                );
-            } catch (ClassNotFoundException | SQLException e) {
-                e.printStackTrace();
-                throw new SQLException("Koneksi ke database gagal.");
-            }
+    public static Connection getConnection() throws SQLException {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            return DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/db_katering", "root", "");
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            throw new SQLException("Koneksi ke database gagal: " + e.getMessage());
         }
-        return conn;
     }
 }
+
