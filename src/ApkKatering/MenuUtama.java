@@ -91,9 +91,7 @@ public class MenuUtama extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 224, 102));
 
-        jLabel1.setBackground(new java.awt.Color(255, 99, 71));
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 99, 71));
         jLabel1.setText("WELCOME");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
