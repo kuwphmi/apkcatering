@@ -52,7 +52,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="txtPorsi" min="-2" pref="100" max="-2" attributes="0"/>
                       <Component id="jLabel5" min="-2" pref="34" max="-2" attributes="0"/>
-                      <Component id="txtModal" max="-2" attributes="0"/>
+                      <Component id="txtModal" min="-2" pref="100" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -72,7 +72,7 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="347" pref="347" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtIncome" max="-2" attributes="0"/>
+                              <Component id="txtIncome" min="-2" pref="100" max="-2" attributes="0"/>
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -80,7 +80,7 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="616" pref="616" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="txtLabaRugi" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtLabaRugi" min="-2" pref="100" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="0" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -89,7 +89,7 @@
                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="90" max="32767" attributes="0"/>
+                  <EmptySpace pref="76" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -98,22 +98,16 @@
               <Group type="102" alignment="1" attributes="0">
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="2" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtBiayaBahan" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="2" attributes="0">
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtPorsi" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="2" attributes="0">
-                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtHargaJual" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="txtHargaJual" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtBiayaBahan" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtPorsi" alignment="2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -122,14 +116,14 @@
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtModal" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtIncome" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtLabaRugi" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="2" attributes="0">
+                      <Component id="txtIncome" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtModal" alignment="2" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtLabaRugi" alignment="2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
                   <Component id="btnHitung" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="69" max="32767" attributes="0"/>
+                  <EmptySpace pref="65" max="32767" attributes="0"/>
                   <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
               </Group>
@@ -138,25 +132,16 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JTextField" name="txtPorsi">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Porsi"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPorsiActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtHargaJual">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Harga Jual"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtHargaJualActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtBiayaBahan">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Biaya Bahan Baku"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnHitung">
           <Properties>
@@ -175,7 +160,6 @@
         <Component class="javax.swing.JTextField" name="txtModal">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="Modal"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtModalActionPerformed"/>
@@ -184,42 +168,58 @@
         <Component class="javax.swing.JTextField" name="txtIncome">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="Income"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtLabaRugi">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-            <Property name="text" type="java.lang.String" value="Laba/Rugi"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Laba/Rugi"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Total Income"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Total Modal"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Porsi"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Harga Jual"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Calibri" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Biaya Bahan Baku"/>
           </Properties>
         </Component>
