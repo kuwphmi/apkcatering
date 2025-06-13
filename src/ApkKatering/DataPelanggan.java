@@ -51,6 +51,7 @@ public class DataPelanggan extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         setSize(new java.awt.Dimension(800, 650));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
