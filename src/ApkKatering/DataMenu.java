@@ -85,7 +85,15 @@ public class DataMenu extends javax.swing.JFrame {
             new String [] {
                 "ID Menu", "Menu Paket", "Isi Paket", "Harga Paket"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tblMenu.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 tblMenuAncestorAdded(evt);

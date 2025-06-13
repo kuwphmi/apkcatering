@@ -88,7 +88,15 @@ public class DataPelanggan extends javax.swing.JFrame {
             new String [] {
                 "Nama_Pelanggan", "Alamat", "No.Hp", "Lokasi"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblData);
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
