@@ -48,6 +48,11 @@ public class MenuUtama extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Kembali");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         btnMenu.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
         btnMenu.setForeground(new java.awt.Color(51, 51, 51));
@@ -164,29 +169,31 @@ public class MenuUtama extends javax.swing.JFrame {
 
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Menu akan dibuka ");
-        MenuUtama menu = new MenuUtama();
-        this.dispose(); // tutup form login
+    DataMenu menu = new DataMenu();
+    menu.setVisible(true); // << INI YANG KURANG
+    this.dispose();
 
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void btnPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPelangganActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Pelanggan akan dibuka ");
         new DataPelanggan().setVisible(true);
     }//GEN-LAST:event_btnPelangganActionPerformed
 
     private void btnPesananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesananActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Pesanan akan dibuka ");
         new DataPesanan().setVisible(true); 
     }//GEN-LAST:event_btnPesananActionPerformed
 
     private void btnPendapatanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPendapatanActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this, "Pendapatan akan dibuka ");
         new LabaRugi().setVisible(true);
     }//GEN-LAST:event_btnPendapatanActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new LoginForm().setVisible(true);
+    this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

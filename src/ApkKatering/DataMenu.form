@@ -74,14 +74,12 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="jButton1" pref="90" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtPaket" max="32767" attributes="0"/>
-                                  <Component id="txtIsi" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtHarga" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnHapus" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnEdit" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnTambah" alignment="1" pref="90" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="txtPaket" max="32767" attributes="0"/>
+                              <Component id="txtIsi" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtHarga" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnHapus" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnEdit" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnTambah" alignment="1" pref="90" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       </Group>
