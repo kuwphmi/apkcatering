@@ -24,6 +24,7 @@ public class DataMenu extends javax.swing.JFrame {
      */
     public DataMenu() {
         initComponents();
+        btnTampil();
     }
 
     /**
@@ -64,6 +65,11 @@ public class DataMenu extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Kembali");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         btnTampil.setBackground(new java.awt.Color(255, 188, 9));
         btnTampil.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -257,6 +263,31 @@ public class DataMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnTampil(){
+        DefaultTableModel model = (DefaultTableModel) tblMenu.getModel();
+        model.setRowCount(0);
+        
+        try {
+           Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_katering", "root", "");
+           Statement stmt = conn.createStatement();
+           ResultSet rs = stmt.executeQuery("SELECT * FROM menu");
+           
+           while (rs.next()) {
+               model.addRow(new Object[]{
+               rs.getInt("id"),
+               rs.getString("nama"),
+               rs.getString("isi"),
+               rs.getInt("harga")
+                });
+           }
+           rs.close();
+           stmt.close();
+           conn.close();
+        } catch (SQLException e){
+            JOptionPane.showMessageDialog(this, "Error:" + e.getMessage());
+        }
+    }
+    
     private void btnTampilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTampilActionPerformed
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) tblMenu.getModel();
@@ -413,6 +444,11 @@ try {
             JOptionPane.showMessageDialog(this, "Errpr:"+e.getMessage());
         }
     }//GEN-LAST:event_btnHapusActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         new MenuUtama().setVisible(true);
+    this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     /**
      * @param args the command line arguments

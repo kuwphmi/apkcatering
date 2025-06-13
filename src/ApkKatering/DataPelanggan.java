@@ -23,6 +23,7 @@ public class DataPelanggan extends javax.swing.JFrame {
      */
     public DataPelanggan() {
         initComponents();
+        loadDataToTable();
     }
 
     /**
@@ -88,15 +89,7 @@ public class DataPelanggan extends javax.swing.JFrame {
             new String [] {
                 "Nama_Pelanggan", "Alamat", "No.Hp", "Lokasi"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(tblData);
 
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -209,6 +202,35 @@ public class DataPelanggan extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void loadDataToTable() {
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Nama_Pelanggan");
+        model.addColumn("Alamat");
+        model.addColumn("No.Hp");
+        model.addColumn("Lokasi");
+
+        try {
+            Connection conn = Koneksi.getConnection();
+            String sql = "SELECT * FROM pelanggan";
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                model.addRow(new Object[]{
+                    rs.getString("Nama"),
+                    rs.getString("Alamat"),
+                    rs.getString("No.Hp"),
+                    rs.getString("Lokasi")
+                });
+            }
+
+            tblData.setModel(model);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Gagal memuat data: " + e.getMessage());
+        }
+    }
+
+    
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
         // TODO add your handling code here:
         String nama = txtNama.getText();
