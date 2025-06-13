@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package ApkKatering;
+import java.awt.HeadlessException;
 import javax.swing.table.DefaultTableModel;
 import java.sql.DriverManager;
 import java.sql.Connection;
@@ -10,6 +11,7 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /**
  *
@@ -184,13 +186,12 @@ public class DataMenu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtPaket)
-                                .addComponent(txtIsi)
-                                .addComponent(txtHarga)
-                                .addComponent(btnHapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnTambah, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)))
+                            .addComponent(txtPaket)
+                            .addComponent(txtIsi)
+                            .addComponent(txtHarga)
+                            .addComponent(btnHapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnTambah, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
                         .addGap(51, 51, 51))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -262,13 +263,14 @@ public class DataMenu extends javax.swing.JFrame {
                model.addRow(new Object[]{
                rs.getInt("id"),
                rs.getString("nama"),
+               rs.getString("isi"),
                rs.getInt("harga")
                 });
            }
            rs.close();
            stmt.close();
            conn.close();
-        } catch (Exception e){
+        } catch (SQLException e){
             JOptionPane.showMessageDialog(this, "Error:" + e.getMessage());
         }
     }//GEN-LAST:event_btnTampilActionPerformed
@@ -287,18 +289,16 @@ if (nama.isEmpty() || hargaStr.isEmpty() || isi.isEmpty()) {
 try {
     int harga = Integer.parseInt(hargaStr);
 
-    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_katering", "root", "");
-    String query = "INSERT INTO menu (nama, harga, isi) VALUES (?, ?, ?)";
-    PreparedStatement stmt = conn.prepareStatement(query);
-    
-    stmt.setString(1, nama);
-    stmt.setInt(2, harga); // ubah jadi setInt
-    stmt.setString(3, isi);
-    
-    stmt.executeUpdate();
-    
-    stmt.close();
-    conn.close();
+            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_katering", "root", "")) {
+                String query = "INSERT INTO menu (nama, harga, isi) VALUES (?, ?, ?)";
+        try (PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, nama);
+            stmt.setInt(2, harga); // ubah jadi setInt
+            stmt.setString(3, isi);
+            
+            stmt.executeUpdate();
+        }
+            }
     
     JOptionPane.showMessageDialog(this, "Data Berhasil Ditambahkan");
 
@@ -308,7 +308,7 @@ try {
 
 } catch (NumberFormatException e) {
     JOptionPane.showMessageDialog(this, "Harga harus berupa angka");
-} catch (Exception e) {
+} catch (HeadlessException | SQLException e) {
     JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
 }
 
@@ -338,17 +338,16 @@ try {
         
         try{
             int harga = Integer.parseInt(hargaStr);
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_katering", "root", "");
-            String query = "UPDATE menu SET nama=?, harga=? WHERE id=?";
-            PreparedStatement stmt = conn.prepareStatement(query);
-            
-            stmt.setString(1, nama);
-            stmt.setInt(2, harga);
-            stmt.setInt(3, Integer.parseInt(id));
-            
-            int rowsUpdated = stmt.executeUpdate();
-            stmt.close();
-            conn.close();
+            int rowsUpdated;
+            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_katering", "root", "")) {
+                String query = "UPDATE menu SET nama=?, harga=? WHERE id=?";
+                PreparedStatement stmt = conn.prepareStatement(query);
+                stmt.setString(1, nama);
+                stmt.setInt(2, harga);
+                stmt.setInt(3, Integer.parseInt(id));
+                rowsUpdated = stmt.executeUpdate();
+                stmt.close();
+            }
             
             if (rowsUpdated > 0){
                 JOptionPane.showMessageDialog(this, "Data Berhasil diUpdate");

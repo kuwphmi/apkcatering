@@ -60,6 +60,11 @@ public class DataPelanggan extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Kembali");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         btnSimpan.setBackground(new java.awt.Color(255, 188, 9));
         btnSimpan.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -233,6 +238,11 @@ public class DataPelanggan extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSimpanActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new MenuUtama().setVisible(true);
+    this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -261,10 +271,8 @@ public class DataPelanggan extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new DataPelanggan().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new DataPelanggan().setVisible(true);
         });
     }
 
