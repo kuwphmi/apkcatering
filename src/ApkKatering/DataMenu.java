@@ -289,6 +289,7 @@ public class DataMenu extends javax.swing.JFrame {
         }
     }
     
+      
     private void btnTampilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTampilActionPerformed
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel) tblMenu.getModel();
@@ -315,22 +316,23 @@ public class DataMenu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnTampilActionPerformed
 
+    
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
         // TODO add your handling code here:
         String nama = txtPaket.getText();
-String hargaStr = txtHarga.getText();
-String isi = txtIsi.getText(); // tambahkan ini
+        String hargaStr = txtHarga.getText();
+        String isi = txtIsi.getText(); // tambahkan ini
 
-if (nama.isEmpty() || hargaStr.isEmpty() || isi.isEmpty()) {
-    JOptionPane.showMessageDialog(this, "Nama, Harga, dan Isi Paket wajib diisi!");
-    return;
-}
+            if (nama.isEmpty() || hargaStr.isEmpty() || isi.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Nama, Harga, dan Isi Paket wajib diisi!");
+            return;
+        }
 
-try {
-    int harga = Integer.parseInt(hargaStr);
+        try {
+            int harga = Integer.parseInt(hargaStr);
 
-            try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_katering", "root", "")) {
-                String query = "INSERT INTO menu (nama, harga, isi) VALUES (?, ?, ?)";
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_katering", "root", "")) {
+            String query = "INSERT INTO menu (nama, harga, isi) VALUES (?, ?, ?)";
         try (PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, nama);
             stmt.setInt(2, harga); // ubah jadi setInt
@@ -340,18 +342,17 @@ try {
         }
             }
     
-    JOptionPane.showMessageDialog(this, "Data Berhasil Ditambahkan");
+            JOptionPane.showMessageDialog(this, "Data Berhasil Ditambahkan");
 
-    txtPaket.setText("");
-    txtHarga.setText("");
-    txtIsi.setText(""); // reset isi juga
+            txtPaket.setText("");
+            txtHarga.setText("");
+            txtIsi.setText(""); // reset isi juga
 
-} catch (NumberFormatException e) {
-    JOptionPane.showMessageDialog(this, "Harga harus berupa angka");
-} catch (HeadlessException | SQLException e) {
-    JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
-}
-
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Harga harus berupa angka");
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+            }
     }//GEN-LAST:event_btnTambahActionPerformed
 
     private void tblMenuAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_tblMenuAncestorAdded
@@ -448,7 +449,7 @@ try {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
          new MenuUtama().setVisible(true);
-    this.dispose();
+            this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
     
     /**

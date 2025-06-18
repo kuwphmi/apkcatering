@@ -23,7 +23,7 @@ Fitur-fitur ini dirancang agar pemilik usaha katering dapat meningkatkan efisien
 1. **Pasang Java JDK dan MySQL**: Instalasi Java Development Kit (JDK) terbaru dari situs resmi Oracle atau OpenJDK, serta pasang MySQL Server di komputer Anda.
 2. **Buat Database**: Setelah MySQL terpasang, buat database bernama `db_katering`. Anda dapat menjalankan skrip SQL untuk membuat tabel `akun`, `menu`, dan `pelanggan` sesuai dengan struktur yang diberikan (setiap tabel menggunakan engine InnoDB dan collation `utf8mb4_general_ci`).
 3. **Konfigurasi Koneksi**: Buka file `Koneksi.java` di project aplikasi, lalu sesuaikan kredensial (URL, username, password) MySQL dengan environment Anda. Pastikan `db_katering` sudah benar dan akun database memiliki izin akses.
-4. **Jalankan Aplikasi**: Buka project di NetBeans, lalu jalankan (`Run Project`). Aplikasi akan memuat tampilan **Login**. Masukkan username dan password akun (lihat tabel `akun`; Anda harus menambahkan data akun terlebih dahulu di database jika belum ada).
+4. **Jalankan Aplikasi**: Buka project di NetBeans, lalu jalankan (`Run Project`). Aplikasi akan memuat tampilan **Login**. Masukkan username "admin" dan password "admin123" .
 5. **Mulai Menggunakan**: Setelah login, Anda akan masuk ke **Menu Utama**. Gunakan menu yang tersedia untuk mengelola data **Pesanan**, **Pelanggan**, dan **Menu Makanan** melalui antarmuka grafis. Setiap modul memiliki form tabel untuk menambah, mengubah, menghapus, dan melihat data. Ikuti instruksi di layar untuk melakukan operasi pada data.
 
 ## Struktur Database
